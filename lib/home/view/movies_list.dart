@@ -51,7 +51,6 @@ class MoviesList extends StatelessWidget {
   Widget _buildMovieSection(
       MovieSection section, final MovieSectionState sectionState, Function onToggleSection) {
     bool isExpanded = sectionState.isExpanded;
-    print('Section: ${section.getName()}, expanded ${sectionState.isExpanded}, isLoading: ${sectionState.isLoading}');
 
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(

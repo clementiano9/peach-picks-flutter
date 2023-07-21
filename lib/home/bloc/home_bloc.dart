@@ -54,7 +54,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           latestMovies: state.latestMovies
               .copyWith(movies: latestMovies, isLoading: false)));
     } catch (e) {
-      print("Fetched movies error: ${e.toString()}");
       emit(state.copyWith(status: HomeStatus.failure));
     }
   }
@@ -89,7 +88,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Future<void> _onUpcomingMovies(FetchUpcomingMovies event, Emitter<HomeState> emit) async {
     emit(state.copyWith(upcomingMovies: state.upcomingMovies.copyWith(isLoading: true)));
-    print("Fetching upcoming... ");
     try {
       final moviesResponse = await repository.loadUpcomingMovies();
       final movies = moviesResponse.results;
